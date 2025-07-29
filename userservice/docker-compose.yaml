@@ -1,12 +1,12 @@
 services:
   postgres:
-    image: postgres:16
-    container_name: my-postgres
+    image: postgres
+    container_name: my_postgres
     restart: always
     environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydatabase
+      POSTGRES_USER: kelprograms
+      POSTGRES_PASSWORD: kelprograms
+      POSTGRES_DB: fitness_user_db
     ports:
       - "5432:5432"
     volumes:
@@ -14,13 +14,13 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
-    container_name: my-pgadmin
+    container_name: my_pgadmin
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@example.com
       PGADMIN_DEFAULT_PASSWORD: admin123
     ports:
-      - "8080:80"
+      - "8081:80"
     depends_on:
       - postgres
     volumes:
