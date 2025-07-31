@@ -1,0 +1,15 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: aiservice
+  data:
+    mongodb:
+      uri: mongodb://kelprograms:kelprograms@localhost:27017/fitnessrecommendation?authSource=admin
+      database: fitnessrecommendation
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
