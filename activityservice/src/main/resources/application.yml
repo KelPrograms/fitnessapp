@@ -5,6 +5,11 @@ spring:
     mongodb:
       uri: mongodb://kelprograms:kelprograms@localhost:27017/fitnessactivity?authSource=admin
       database: fitnessactivity
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password
 server:
   port: 8082
 
@@ -12,5 +17,15 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
 
+rabbitmq:
+  exchange:
+    name: fitness.exchange
+  queue:
+    name: activity.queue
+  routing:
+    key: activity.tracking
 
