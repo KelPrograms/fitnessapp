@@ -10,6 +10,18 @@ services:
     volumes:
       - mongo-data:/data/db     # Persist data outside container
 
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"       # RabbitMQ (AMQP) protocol port
+      - "15672:15672"     # RabbitMQ management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
 volumes:
   mongo-data:
     driver: local
+  rabbitmq_data:
