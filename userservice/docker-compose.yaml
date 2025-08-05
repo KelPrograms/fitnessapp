@@ -26,6 +26,22 @@ services:
     volumes:
       - pgadmin_data:/var/lib/pgadmin
 
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.3.2
+    container_name: keycloak
+    ports:
+      - "8181:8080"
+    depends_on:
+      - postgres
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: kelprograms
+      KC_DB_PASSWORD: kelprograms
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    command: start-dev
+
 volumes:
   pgdata:
   pgadmin_data:
