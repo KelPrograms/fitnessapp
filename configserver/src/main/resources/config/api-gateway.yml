@@ -33,7 +33,4 @@ eureka:
     prefer-ip-address: true
     ip-address: 127.0.0.1
 
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
 
